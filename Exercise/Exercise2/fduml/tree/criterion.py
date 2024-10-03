@@ -81,6 +81,7 @@ def __info_gain_ratio(y, l_y, r_y):
     import math
     Split_Info = - len(l_y)/(len(l_y)+len(r_y)) * math.log(len(l_y)/(len(l_y)+len(r_y)),2) - len(r_y)/(len(l_y)+len(r_y)) * math.log(len(r_y)/(len(l_y)+len(r_y)),2)
     Gain_Ratio = info_gain / Split_Info
+    info_gain = Gain_Ratio
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     return info_gain
 
@@ -99,7 +100,14 @@ def __gini_index(y, l_y, r_y):
     # after splitting y into l_y and r_y                                      #
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
+    import numpy as np
+    def Gini(input_label):
+        normalized_input_label = input_label/np.sum(input_label)
+        gini = 1-normalized_input_label*normalized_input_label
+        return gini
 
+    before = Gini(all_labels)
+    after = np.sum(left_labels)/np.sum(all_labels)*Gini(left_labels)+ np.sum(right_labels)/np.sum(all_labels)*Gini(right_labels)
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     return before - after
 
@@ -114,6 +122,6 @@ def __error_rate(y, l_y, r_y):
     # after splitting y into l_y and r_y                                      #
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
+    
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     return before - after
