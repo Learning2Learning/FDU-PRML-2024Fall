@@ -51,11 +51,17 @@ def __info_gain(y, l_y, r_y):
     # l_y and r_y                                                             #
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
+    def Entropy(input):
+        try:
+            entropy = -input*np.log(input)
+            return entropy
+        except Exceptions:
+            return False
+        
     info_gain = Entropy(y) - len(l_y)/(len(l_y)+len(r_y)) * Entropy(l_y) - len(r_y)/(len(l_y)+len(r_y)) * Entropy(r_y)
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
 
     return info_gain
-
 
 def __info_gain_ratio(y, l_y, r_y):
     """
