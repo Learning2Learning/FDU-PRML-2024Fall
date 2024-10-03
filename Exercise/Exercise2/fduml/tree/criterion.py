@@ -77,7 +77,10 @@ def __info_gain_ratio(y, l_y, r_y):
     # into l_y and r_y                                                        #
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
+    import numpy as np
+    import math
+    Split_Info = - len(l_y)/(len(l_y)+len(r_y)) * math.log(len(l_y)/(len(l_y)+len(r_y)),2) - len(r_y)/(len(l_y)+len(r_y)) * math.log(len(r_y)/(len(l_y)+len(r_y)),2)
+    Gain_Ratio = info_gain / Split_Info
     # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     return info_gain
 
