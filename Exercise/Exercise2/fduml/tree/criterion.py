@@ -52,8 +52,9 @@ def __info_gain(y, l_y, r_y):
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
     def Entropy(input):
+        import numpy as np
         try:
-            entropy = -input*np.log(input)
+            entropy = np.sum(-input*np.log(input))
             return entropy
         except Exceptions:
             return False
