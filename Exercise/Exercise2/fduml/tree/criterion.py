@@ -122,6 +122,7 @@ def __error_rate(y, l_y, r_y):
     # after splitting y into l_y and r_y                                      #
     ###########################################################################
     # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
+    import numpy as np
     def Error_rate(input_label):
         error_rate = 1 - np.max(input_label)/np.sum(input_label)
         return error_rate
